@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Instructor</h1>
+
+    <a class="btn btn-outline-success btn-sm" [routerLink]="[ '/instructor-save' ]">Crear</a>
+    <br>
+
+    <table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>LastName</td>
+        <td>FirstMidName</td>
+        <td>HireDate</td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let item of instructors">
+        <td>{{ item.ID}}</td>
+        <td>{{ item.LastName}}</td>
+        <td>{{ item.FirstMidName}}</td>
+        <td>{{ item.HireDate}}</td>
+        <td>
+            <div class="btn-group" role="group">
+            <a class="btn btn-sm btn-outline-warning" [routerLink]="[ '/instructor-edit', item.ID ]">Editar</a>
+            <a class="btn btn-sm btn-outline-danger" [routerLink]="[ '/instructor-delete', item.ID ]">Eliminar</a>
+            </div>  
+        </td>
+    </tr>
+</table>
+</div>

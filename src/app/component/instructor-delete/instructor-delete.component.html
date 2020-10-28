@@ -1,0 +1,50 @@
+<p>student-delete works!</p>
+<div class="container">
+    <h2>Eliminar instructor</h2>
+
+    <div class="form-row" *ngIf="!showMsg">
+        <div class="alert alert-danger col-md-12" role="alert">
+            ¿Estás seguro?
+            <br>
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-danger btn-sm" (click)="delete()">Eliminar</button>
+                <a class="btn btn-outline-primary btn-sm" [routerLink]="[ '/instructor-list']">Volver </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+            <br>
+            <a class="btn btn-outline-danger btn-sm" [routerLink]="[ '/instructor-list']">Volver </a>
+        </div>
+    </div>
+
+    <form #courseForms="ngForm" *ngIf="instructor">
+
+        <div class="form-row">
+            <div class="col-md-4">
+                <label>ID:</label>
+                <input type="number" id="ID" name="ID" placeholder="Ingresa el ID"
+                    class="form-control" #ID [(ngModel)]="instructor.ID"/>
+            </div>
+            <div class="col-md-4">
+                <label>LastName:</label>
+                <input type="text" id="LastName" name="LastName" placeholder="Ingresa el apellido" class="form-control"
+                    [(ngModel)]="instructor.LastName"/>
+            </div>
+            <div class="col-md-4">
+                <label>FirstMidName:</label>
+                <input type="text" id="FirstMidName" name="FirstMidName" placeholder="Ingresa el nombre" class="form-control"
+                    [(ngModel)]="instructor.FirstMidName"/>
+            </div>
+            <div class="col-md-4">
+                <label>HireDate:</label>
+                <input type="date" id="HireDate" name="HireDate" placeholder="Ingresa el HireDate" class="form-control"
+                    [(ngModel)]="instructor.HireDate" />
+            </div>
+        </div>
+    </form>
+
+</div>
